@@ -1,3 +1,4 @@
+
 import { h, render,defineEmits } from 'vue'
 import Notification from './Notification.vue'
 
@@ -20,7 +21,7 @@ export default function Notifications(opt) {
     const instance = createComponent(options)
     
     document.body.append(instance.vnode.el)
-    return instance.propxy
+    return instance
 }
 
 function createComponent(options) {

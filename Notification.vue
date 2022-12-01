@@ -1,4 +1,5 @@
 <template>
+    <Teleport :to='teleport'>
         <div 
         class="zkx-notification" 
         :class="[horizontalClass,verticalProperty]" 
@@ -15,6 +16,7 @@
                 ×
             </div>
         </div>
+    </Teleport>
 </template>
 <script>
 export default {
@@ -32,7 +34,7 @@ const props = defineProps({
     position: String,
     duration: 0,
     // showClose: false,
-    // teleport: String
+    teleport: String
 })
 
 const horizontalClass  = computed(() => {
@@ -81,6 +83,9 @@ delayClose()
 }
 .zkx-notification__bottom {
     bottom: 50px;
+}
+.zkx-notification__top {
+    top: 50px;
 }
 .zkx-notification-x {
     position: absolute;

@@ -1,6 +1,7 @@
 import Notification from './Notification.vue'
 import { mount } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
+import NotificationFunc from './Notification.js'
 // import { describe, it } from 'node:test'
 
 describe('Notification', () => {
@@ -55,6 +56,11 @@ describe('Notification', () => {
         jest.runTimersToTime(1000)
         await flushPromises()    
         expect(wrapper.get('.zkx-notification').isVisible()).toBe(false)
+    });
+    it('使用Notification', () => {
+        const instanceProxy = NotificationFunc({message:'message'})
+
+        expect(instanceProxy.props.message).toBe('message')
     })
 
 })
